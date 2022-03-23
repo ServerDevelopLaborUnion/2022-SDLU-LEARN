@@ -1,0 +1,36 @@
+javascript {
+    변수를 선언할 때: 일단 const로 선언(수정할 때 let으로 변경)
+    수열 선언 : const arr = [];
+    수열에 수를 넣을때 : arr.push(입력값);
+    수열 출력 {
+        for(const x of arr) {
+            console.log(x);
+        }
+    }
+}
+open server {
+    ws 클래스 다운로드 {
+        npm i(install) ws
+    }
+    ws 클래스를 열기(const ws = require('ws');)
+    서버 만들기(const server = new ws.Server({port: 8922});)
+    서버 열기 {
+        node 파일명.js
+    }
+    DIR을 스크립트 상위 폴더로 셋팅하기
+}
+in server..{
+    server.on("listening", () => {
+        console.log("서버가 열렸습니다!");
+    }); // 서버가 열렸을 때 콘솔창에 알림
+        //(listening은 서버의 오픈여부 확인함수)
+
+    server.on("connection", (socket) => {
+        socket.on("message", (a) => {
+            socket.send(a.toString());
+        });
+    }); // 서버에 클라이언트가 오면("connection")
+        // 클라이언트에게 받은 값을 a에 저장함("message")
+        // socket.send가 a를 클라이언트에게 보냄
+        // toString은 a를 string(문자열)로 바꿔줌
+}
