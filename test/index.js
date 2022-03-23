@@ -1,1 +1,1 @@
-console.log("Hello world!");
+const name = "남준성";
