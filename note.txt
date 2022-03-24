@@ -1,3 +1,18 @@
 const,let = 변수선언 
 let (수정이 가능함)
 const (수정불가)
+2022-3-24
+배운거 : 저번시간에 열어본 서버에 유니티를 활용해서 연결하고 메세지 보내보기 (자바스크립트 == 서버 유니티 == 클라이언트) ?
+소감 : 저번시간하고 다르게 조금더 이해한거 같지만 아직 따라가기 힘든것 같다 제대로 이해한거면 좋겠당
+webSocket = new WebSocket("ws://127.0.0.1:8080"); == 서버 주소 정하기
+        webSocket.OnOpen += (sender, e) => 웹소켓 열기?
+        {
+            Debug.Log("서버에 연결됨"); == 유니티 콘솔에 표시
+        }
+webSocket.OnMessage += (sender, e) => 웹소켓 메세지 표시하기(유니티 콘솔창?)
+        {
+            Debug.Log(e.Data); 유니티 콘솔에 표시
+        };
+        webSocket.Connect(); == 서버 연결하기
+
+webSocket.Send(input.text); == 메세지 보내기
