@@ -32,5 +32,34 @@ in server..{
         // toString은 a를 string(문자열)로 바꿔줌
 }
 
+cmd > ipconpig 
+    현재 접속한 인터넷의 IP를 보여줌
+
+
+   void Start()
+    {
+        webSocket = new WebSocket("ws://Ip:port");
+        webSocket.OnOpen += (sender, e) =>  
+        //소켓서버가 열렸을 때 sender가 보냄, 받는 변수이름이 e
+        {
+            Debug.Log("서버에 연결됨"); //유니티 콘솔창에 띄움
+            webSocket.Send("ㅎㅇ"); //서버에서 클라에게 보냄
+        };
+
+        webSocket.OnMessage += (sender, e) => //클라가 서버에게 메시지를 보냈을 때
+        {
+            Debug.Log(e.Data); //콘솔에 해당 메시지를 띄움
+        };
+        webSocket.ConnectAsync(); //서버 접속하는 것을 기다려주는 코드
+                                  //코드가 끊기지 않음   
+    }
+
+    public void SendChat() //SendChat 관련 함수
+    {
+        webSocket.Send(input.text); //입력받은 text를 서버로 보냄
+    }
+}
+
+
 
 
