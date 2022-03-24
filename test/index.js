@@ -7,7 +7,9 @@ server.on("listening",()=>{
 });
 
 server.on("connection", (socket) => {
-   socket.on("message", (message)=>{
+    console.log("클라이언트가 접속했습니다!");
+    socket.on("message", (message)=>{
+        console.log(message.toString());
         socket.send(message.toString());
     });
 });
