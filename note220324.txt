@@ -1,0 +1,24 @@
+unity server {
+    unity에서 서버를 쓰기 위해 NuGet 필요(서노 디코방에 링크)
+    NuGet -> Manage NuGet Packages -> 웹소켓샵 넷스텐다드 다운로드
+    object에서 C# 스크립트를 파야 함.
+}
+In C# script {
+    using.WebSocketSharp 필수
+
+    WebSocket webSocket = null; 
+    void Start() {
+        webSocket = new WebSocket("ws://(IPv4주소):(포트번호)"; //서버 파는거
+    }
+    webSocket.OnOpen += (s, e) => // 서버 열렸나 확인
+		{
+			Debug.Log("서버에 연결됨"); // unity 콘솔에서 띄움
+		}; // JS코드와 다른점: += 연산자로 서버 생성
+        
+    }
+    webSocket.OnMessage += (s, e) =>
+		{
+			Debug.Log(e.Data);
+		}; // 받은 메세지를 서버로 보내는 코드
+    }
+}
