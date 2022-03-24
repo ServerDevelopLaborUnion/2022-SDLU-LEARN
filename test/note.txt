@@ -50,8 +50,7 @@ cmd > ipconpig
         {
             Debug.Log(e.Data); //콘솔에 해당 메시지를 띄움
         };
-        webSocket.ConnectAsync(); //서버 접속하는 것을 기다려주는 코드
-                                  //코드가 끊기지 않음   
+        webSocket.ConnectAsync(); 
     }
 
     public void SendChat() //SendChat 관련 함수
