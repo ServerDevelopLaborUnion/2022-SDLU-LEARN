@@ -14,4 +14,26 @@ server.on("connection", (socket) =>{
         console.log(message.tostring());
     });
 });
-fddf
+
+3월24일목요일
+websocket = new WebSocket("ws://192.168.137.1:8080");       ip주소 입력
+
+        websocket.OnOpen += (sender, e) =>          서버에 메세지 보내기
+        {
+            Debug.Log("서버에 연결");
+            websocket.Send("ㅎㅇ");
+        };
+
+        websocket.OnMessage += (sender, e) =>     입력받은데이터를 e에 넣음
+        {
+            Debug.Log(e.Data);
+        };
+
+
+        websocket.Connect();                        연결
+    }
+
+    public void SendChat()
+    {
+        websocket.Send(input.text);                 데이터 입력
+    }
