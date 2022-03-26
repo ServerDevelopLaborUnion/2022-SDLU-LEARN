@@ -10,6 +10,6 @@ server.on("connection", (client) => {
 
 	client.on("message", (a) => {
 		console.log(a.toString());
-		client.send(a.toString());
+		client.send("메세지가 정상적으로 전달되었습니다.");
 	});
 });
