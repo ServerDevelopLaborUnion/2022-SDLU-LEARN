@@ -12,4 +12,25 @@ Socket을 이용해 양방향 통신이 가능하게 되었다.
 Unity에서 webSocket-sharp을 쓰기위해 먼저 using을해줘야함.
 webSocket.OnOpen은 서버가 열렸을때 실행되는 코드고 webSocket.OnMessage는 메세지가 실행됬을때 실행되는코드.
 Debug.Log는 유니티콘솔창띄우는것
- 
+
+복습*
+
+mkdir명령어로 폴더만들기 
+cd를 이용해 만든폴더 들어가기
+init
+port : 8080 = 8080개의 문을 연다는뜻
+wss.on(listening) : 서버가 열렷을때
+wss.on("connection") : 다른유저가 내서버에 접속했을때
+toString을 이용해 읽을수있는 문자열로 변환
+client.send() : 클라이언트에 보내는거
+webSocket.ConnectAsync()를 써야지 안멈추고 굴러감
+
+3/30
+foreach반복문을 이용해 모든 client에 send할수있다.
+
+Unity;
+Unity에서 summary는 적어주는것이 좋다.
+summary사용법 : ///
+time.deltatime은 한프레임당 실행하는 시간이라는뜻이고 이것을 speed에 곱해주면 모든컴퓨터에서 같은 속도로 움직일수있게 해준다.
+Instantiate()함수를 사용하면 게임을 실행하는 도중에 게임오브젝트를 생성할 수 있다      
+Quaternion을 사용하면 회전을계산할수있다.
