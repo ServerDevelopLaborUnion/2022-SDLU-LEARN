@@ -1,0 +1,29 @@
+public class Client : MonoBehaviour
+{
+    WebSocket webSocket = null;
+
+    [SerializeField] InputField input = null; -> 스크립트와 InputField 연결시켜주기 위해 스크립트에 SerializeField속성 부여 
+
+    void Start()
+    {
+        webSocket = new WebSocket("ws://172.31.1.60:8080"); -> 연결할 서버의 주소
+
+        webSocket.OnOpen += (sender, e) => -> 소켓이 서버에 연결 되었을 때
+        {
+            Debug.Log("서버에 연걸됨"); -> 콘솔창에 "서버에 연결됨" 출력
+            webSocket.Send("Hello World!"); -> 서버에 "Hello World!" 출력
+        };
+
+        webSocket.OnMessage += (sender, e) => -> 소켓에서 메세지를 받았을 때
+        {
+            Debug.Log(e.Data); -> 콘솔창에 입력받은 e를 출력
+        };
+
+        webSocket.Connect(); -> 소켓으로 서버에 연결
+    }
+
+    public void SendChat()
+    {
+        webSocket.Send(input.text); -> 소켓에 입력받은 input을 출력
+    }
+}
