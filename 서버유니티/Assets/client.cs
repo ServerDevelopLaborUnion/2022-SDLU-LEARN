@@ -10,7 +10,7 @@ public class client : MonoBehaviour
     [SerializeField] InputField input = null;
     void Start()
     {
-        websocket = new WebSocket("ws://192.168.137.1:8080");
+        websocket = new WebSocket("ws://172.31.1.60:8080");
 
         websocket.OnOpen += (sender, e) =>
         {
