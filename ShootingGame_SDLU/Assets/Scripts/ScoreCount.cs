@@ -14,9 +14,8 @@ public class ScoreCount : MonoBehaviour
     {
         StartCoroutine(GetScore());
     }
-
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         
     }

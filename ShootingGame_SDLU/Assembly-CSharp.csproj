@@ -59,10 +59,13 @@
     <Compile Include="Assets\Scripts\BulletMove.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyMove.cs" />
-    <Compile Include="Assets\Scripts\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\Text_.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\ScoreCount.cs" />
+    <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\FireEnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\FireEnemyMove.cs" />
+    <Compile Include="Assets\Scripts\EnemyBulletMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

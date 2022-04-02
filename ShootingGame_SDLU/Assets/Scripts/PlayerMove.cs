@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     public GameObject Bullet;
     public float FireDelay = 0.5f;
     public float speed = 10f;
+    Vector2 max = new Vector2(8.5f, 4.5f);
+    Vector2 min = new Vector2(-8.5f, -4.5f);
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Move();
+        Block();
     }
 
     private void Move()
@@ -37,5 +40,10 @@ public class PlayerMove : MonoBehaviour
             Instantiate(Bullet, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(FireDelay);
         }
+    }
+
+    private void Block()
+    {
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, min.x, max.x), Mathf.Clamp(transform.position.y, min.y, max.y));
     }
 }
