@@ -19,12 +19,12 @@ public class Text_ : MonoBehaviour
 
     public void TextMove()
     {
-        transform.Translate(Vector3.down * speed);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
     public void DestroyText()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 5f);
     }
 
     void OnDisable()

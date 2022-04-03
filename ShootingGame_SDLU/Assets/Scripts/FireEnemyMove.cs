@@ -15,7 +15,7 @@ public class FireEnemyMove : MonoBehaviour
         _UIManager = FindObjectOfType<UIManager>();
         ScoreManager = FindObjectOfType<ScoreCount>();
         StartCoroutine(EnemyFire());
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame

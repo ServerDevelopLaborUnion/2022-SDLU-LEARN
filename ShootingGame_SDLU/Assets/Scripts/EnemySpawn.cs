@@ -9,18 +9,33 @@ public class EnemySpawn : MonoBehaviour
     public GameObject Enemy;
     public Transform MinValue = null;
     public Transform MaxValue = null;
+    float randval;
+    public GameObject FireEnemy;
 
     void Start()
     {
         StartCoroutine(EnemyCreate());
     }
 
-    private IEnumerator EnemyCreate()
+    public IEnumerator EnemyCreate()
     {
         while (true)
         {
-            Instantiate(Enemy, new Vector2(Random.Range(MinValue.position.x, MaxValue.position.x), MaxValue.position.y), Quaternion.identity);
-            yield return new WaitForSeconds(EnemySpawnDelay);
+            randval = Random.Range(1f, 3f);
+            if (randval >= 2)
+            {
+                Instantiate(Enemy, new Vector2(Random.Range(MinValue.position.x, MaxValue.position.x), MaxValue.position.y), Quaternion.identity);
+                yield return new WaitForSeconds(EnemySpawnDelay);
+                randval = 0;
+
+            }
+            else
+            {
+                Instantiate(FireEnemy, new Vector2(Random.Range(MinValue.position.x, MaxValue.position.x), MaxValue.position.y), Quaternion.identity);
+                yield return new WaitForSeconds(EnemySpawnDelay);
+                randval = 0;
+            }
+            
         }
     }
 }
