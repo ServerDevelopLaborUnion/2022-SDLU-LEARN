@@ -13,3 +13,6 @@ server.on("connection", (client) => {
 		client.send("메세지가 정상적으로 전달되었습니다.");
 	});
 });
+server.on("listening", (socket, e) => {
+	
+})

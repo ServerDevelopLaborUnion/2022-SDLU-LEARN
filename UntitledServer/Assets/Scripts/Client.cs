@@ -13,13 +13,13 @@ public class Client : MonoBehaviour
 		webSocket = new WebSocket("ws://172.31.2.41:8922");
 		webSocket.OnOpen += (s, e) =>
 		{
-			Debug.Log("¼­¹ö¿¡ ¿¬°áµÊ");
+			Debug.Log("ì„œë²„ì— ì—°ê²°ë¨!");
 		};
 		webSocket.OnMessage += (s, e) =>
 		{
 			Debug.Log(e.Data);
 		};
-		webSocket.Connect();
+		webSocket.ConnectAsync();
 	}
 	public void SendChat()
     {
