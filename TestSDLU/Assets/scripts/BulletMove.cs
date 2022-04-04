@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-
+        speed = 20;
     }
 
     // Update is called once per frame
@@ -22,4 +22,13 @@ public class BulletMove : MonoBehaviour
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
+    protected  virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+    
 }

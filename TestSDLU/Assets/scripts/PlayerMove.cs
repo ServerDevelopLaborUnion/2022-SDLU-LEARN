@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 10f;
 
     private Rigidbody2D rb = null;
 
+    public GameObject bullet = null;
+
+    public float shootDuration = 0.5f;
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(Shooting());
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,5 +47,18 @@ public class PlayerMove : MonoBehaviour
 
     //     transform.Translate(new Vector2(hori , verti).normalized * speed * Time.deltaTime);
     // }   
+
+    //"ÄÚ·çÆ¾"
+
+
+    private IEnumerator Shooting()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(shootDuration);
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }
+    }
+
 
 }
