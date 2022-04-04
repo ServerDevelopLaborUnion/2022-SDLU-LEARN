@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public int Score
     {
         set => score = Mathf.Max(0, value);
-        get => score;
+        get => Score;
     }
            
         private void Awake()
