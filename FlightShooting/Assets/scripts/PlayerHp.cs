@@ -28,6 +28,7 @@ public class PlayerHp : MonoBehaviour
         if (currentHp <= 0)
         {
             Debug.Log("Player Hp : 0.. Die");
+            Destroy(gameObject);
         }
     }
 
