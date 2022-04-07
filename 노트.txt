@@ -34,3 +34,13 @@ summary사용법 : ///
 time.deltatime은 한프레임당 실행하는 시간이라는뜻이고 이것을 speed에 곱해주면 모든컴퓨터에서 같은 속도로 움직일수있게 해준다.
 Instantiate()함수를 사용하면 게임을 실행하는 도중에 게임오브젝트를 생성할 수 있다      
 Quaternion을 사용하면 회전을계산할수있다.
+
+4/7일 배운내용
+   JS : const fs = require('fs');// 파일시스템 사용가능하게해주는 코드
+        fs.existsSync(file)//동기식 파일 확인
+        scores = JSON.parse(fs.readFileSync(file));
+        //JSON.parse : 파일을 불러와 파싱, fs.existsSync(file) : 동기로 파일확인 
+        split(':') // :을기준으로 나누는거
+        wss.clients.forEach(client => {sendScores(client);});// forEach문으로 클라이언트한테 점수를 각각 보내주는 코드
+        JSON.stringify// JSON문자열로 변환
+Unity :  (내일 적을것)
