@@ -1,3 +1,3 @@
 # 서버 개발 노동조합
 
-Yeeeeeexample
+연습 및 과제용 Repo
