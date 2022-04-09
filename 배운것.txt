@@ -1,0 +1,91 @@
+1일차
+const ws = require('ws');
+
+const server = new ws.Server({port: 8080});
+
+server.on("listening", () => {
+    console.log("서버가 열렸습니다!");
+});
+
+server.on("connection", (socket) =>{
+    socket.send("Hello World");
+
+    socket.on("message", (message) => {
+        console.log(message.tostring());
+    });
+});
+
+3월24일목요일
+websocket = new WebSocket("ws://192.168.137.1:8080");       ip주소 입력
+
+        websocket.OnOpen += (sender, e) =>          서버에 메세지 보내기
+        {
+            Debug.Log("서버에 연결");
+            websocket.Send("ㅎㅇ");
+        };
+
+        websocket.OnMessage += (sender, e) =>     입력받은데이터를 e에 넣음
+        {
+            Debug.Log(e.Data);
+        };
+
+
+        websocket.Connect();                        연결
+    }
+
+    public void SendChat()
+    {
+        websocket.Send(input.text);                 데이터 입력
+    }
+/////////////////////////////////////////////////////////////////////////
+const ws = require('ws');
+const fs = require('fs');
+
+const wss = new ws.Server({port : 8080}); 		//8080에 서버 열기
+
+let scores = {}; //스코어 배열
+const file = "./save.json";  				//스코어 정보를 저장할 파일 경로
+
+if(fs.existsSync(file)) 				// 만약 file 폴더가 있을 떄
+{
+    scores = JSON.parse(fs.readFileSync(file)); 		//scores 배열에 file폴더의 값을 저장
+}
+
+function sendScores(socket) 				//Scores 의 값을 소켓에 보내주는 함수
+{
+    socket.send(Object.keys(scores).map((key) => {
+        return key + "," + scores[key];
+    }).join("|"));
+}
+
+wss.on('listening', () => {
+    console.log ("서버가 시작되었습니다.");
+});
+
+wss.on('connection', socket => {
+    console.log('유저가 접속!');
+    socket.on('message', message => {
+        const type = message.toString().split(':') [0]; 	//message에서 :를 기준으로 잘라 [0]자리의 값을 type에 저장
+        
+        switch(type)
+        {
+            case "score":
+                const data = message.toString().split(':')[1]; 	//message에서 :를 중심으로 잘라 [1]자리의 값을 data에 저장
+                const nickname = data.split(",")[0]; 		//data에서 ,를 중심으로 잘라 [0]자리의 값을 nickname에 저장
+                const score = data.split(",")[1]; 		//data변수에서 ,를 중심으로 잘라 [1]자리의 값을 score에 저장
+
+                scores[nickname] = score; 		//scores 딕셔너리에 nickname = score 저장 //Dictionary 클래스는 <Key, Value> 형식의 컬렉션입니다. System.Collections에 정의되어 있으며 Key는 각 컬렉션에서 고유해야 합니다.
+				
+                wss.clients.forEach(client => {		// I don't know
+                    sendScores(client);
+                })
+                
+                fs.writeFileSync(file, JSON.stringify(scores));	// I don't know
+                break;
+
+            case "get":				// I don't know 
+                sendScores(socket); 
+                break;
+        }    
+    })
+});
