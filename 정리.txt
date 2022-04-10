@@ -1,0 +1,52 @@
+
+const ws = require('ws');
+const fs = require('fs');
+
+const wss = new ws.Server({port : 8080}); 		//8080으로 서버 열기
+
+let scores = {}; //스코어 배열
+const file = "./save.json";  				//스코어 정보를 저장할 파일 위치
+
+if(fs.existsSync(file)) 				// 만약 "file" 폴더가 있을 떄
+{
+    scores = JSON.parse(fs.readFileSync(file)); 		//scores 배열에 "file"의 값 저장
+}
+
+function sendScores(socket) 				//scores의 값을 소켓에 보내는 함수
+{
+    socket.send(Object.keys(scores).map((key) => {
+        return key + "," + scores[key];
+    }).join("|"));
+}
+
+wss.on('listening', () => {
+    console.log ("서버가 시작되었습니다.");
+});
+
+wss.on('connection', socket => {
+    console.log('유저가 접속!');
+    socket.on('message', message => {
+        const type = message.toString().split(':') [0]; 	//message에서 : 를 기준으로 잘라 0자리의 값을 type에 저장
+        
+        switch(type)
+        {
+            case "score":
+                const data = message.toString().split(':')[1]; 	//message에서 :를 중심으로 잘라 1자리의 값을 data에 저장
+                const nickname = data.split(",")[0]; 		//data에서 ,를 중심으로 잘라 0자리의 값을 nickname에 저장
+                const score = data.split(",")[1]; 		//data변수에서 ,를 중심으로 잘라 1자리의 값을 score에 저장
+
+                scores[nickname] = score; 		//scores dictionary에 nickname = score 저장
+				
+                wss.clients.forEach(client => {		// 배열을 끝까지 돌면서 client에 저장한 socres값 보내기
+                    sendScores(client);
+                })
+                
+                fs.writeFileSync(file, JSON.stringify(scores));	//"file"이 위치한 파일에 scores 값을 저장
+                break;
+
+            case "get":				    //socket에 score의 값 보내기
+                sendScores(socket); 
+                break;
+        }    
+    })
+});
