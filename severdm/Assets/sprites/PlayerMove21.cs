@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove21 : MonoBehaviour
 {
+    [SerializeField]
+    private string nextSceneName;
     [SerializeField]
     public float speed = 15f;
 
@@ -17,9 +20,14 @@ public class PlayerMove21 : MonoBehaviour
 
    
     public Slider hpSlider;
-    //public float hp = 100;
-    //public float maxhp = 100;
+   
     public float Damage = 0.2f;
+
+    //public bool isTOuchTop;
+    //public bool isTOuchBottom;
+    //public bool isTOuchLeft;
+    //public bool isTOuchRight;
+   
 
 
 
@@ -34,6 +42,13 @@ public class PlayerMove21 : MonoBehaviour
     void Update()
     {
         Move();
+
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (pos.x < 0f) pos.x = 0f;
+        if (pos.x > 1f) pos.x = 1f;
+        if (pos.y < 0f) pos.y = 0f;
+        if (pos.y > 1f) pos.y = 1f;
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
 
     }
 
@@ -63,23 +78,34 @@ public class PlayerMove21 : MonoBehaviour
             hpSlider.value -= Damage;
             if (hpSlider.value == 0)
             {
-                Destroy(this.gameObject);
+               SceneManager.LoadScene(nextSceneName);
               
                
             }
         }
     }
-    //public void DecreasHp()
-    //{
-    //    hp -= Damage;
-    //}
-    //public void Hppbar()
-    //{
-    //    hpSlider.value = (float)hp / (float)maxHp;
-    //}
-    public void GameOver()
-    {
 
-    }
 
+    //private void OnTriggerEnter2D(Collider collision)
+    //{
+    //    if(collision.gameObject.tag == "Boder")
+    //    {
+    //        switch (collision.gameObject.name)
+    //        {
+    //            case "Top":
+    //                isTOuchTop = true;
+    //                break;
+    //            case "Bottom":
+    //                isTOuchBottom = true;
+    //                break ;
+    //            case "Right":
+    //                isTOuchRight = true;
+    //                break;
+    //            case "Left":
+    //                isTOuchLeft = true;
+    //                break;
+
+    //        }
+    //    }
+    //}
 }

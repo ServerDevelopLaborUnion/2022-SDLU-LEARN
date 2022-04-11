@@ -56,12 +56,17 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EnemyBullet.cs" />
+    <Compile Include="Assets\destroybullet.cs" />
+    <Compile Include="Assets\destroyzone.cs" />
+    <Compile Include="Assets\sprites\ButtonEvent.cs" />
     <Compile Include="Assets\enemymove13.cs" />
+    <Compile Include="Assets\Enemy2.cs" />
     <Compile Include="Assets\sprites\PlayerMove21.cs" />
     <Compile Include="Assets\sprites\BulletMove.cs" />
     <Compile Include="Assets\sprites\SpawnManager.cs" />
-    <Compile Include="Assets\destroyzone.cs" />
-    <Compile Include="Assets\destroybullet.cs" />
+    <Compile Include="Assets\Vertical 2D Shooting BE4\ReadMe\Scripts\ReadmeBE4.cs" />
+    <Compile Include="Assets\Back.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - bullet
   - Bullet
+  - zone
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Bullet
   - destroybullet
-  - 
+  - zone
   - 
   - 
   - 

@@ -11,13 +11,15 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemy = null;
     public Transform maxPos = null;
     public Transform minPos = null;
+    public GameObject enemy2 = null;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnEnemy());
-       
+        StartCoroutine(SpawnEnemy2());
+
         //GameObject g = Instantiate(player, spawnPos, Quaternion.identity);
         //rb = g.GetComponent<Rigidbody2D>();
     }
@@ -51,6 +53,15 @@ public class SpawnManager : MonoBehaviour
     {
         
         yield return null;
+
+
+    }
+    private IEnumerator SpawnEnmy2()
+    {
+
+        yield return null;
+
+
     }
 
     private IEnumerator SpawnEnemy()
@@ -58,10 +69,22 @@ public class SpawnManager : MonoBehaviour
         
         while(true)
         {
-            yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(1);
             Instantiate(enemy, new Vector2(Random.Range(minPos.position.x, maxPos.position.x), maxPos.position.y), enemy.transform.rotation);
             yield return null;
         }
+
+    }
+    private IEnumerator SpawnEnemy2()
+    {
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy2, new Vector2(Random.Range(minPos.position.x, maxPos.position.x), maxPos.position.y), enemy2.transform.rotation);
+            yield return null;
         }
- 
+
+    }
+
 }
