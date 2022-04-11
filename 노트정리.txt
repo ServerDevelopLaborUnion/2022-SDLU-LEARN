@@ -1,0 +1,53 @@
+const ws = require('ws');
+const fs = require('fs');// 파일시스템 사용가능하게해주는 코드
+
+const wss = new ws.Server({port: 8080});//8080포트로 웹소켓서버 열기
+
+let scores = {}; //스코어 배열
+const file = "./save.json"; //스코어 정보를 저장할 파일 경로
+
+if (fs.existsSync(file)) //동기식 파일 확인
+{
+    scores = JSON.parse(fs.readFileSync(file));
+    //JSON.parse : 파일을 불러와 파싱, fs.existsSync(file) : 동기로 파일확인 
+}
+
+function sendScores(socket) {//Scores 의 값을 소켓에 보내주는 함수
+    socket.send(Object.keys(scores).map((key) => {
+        return key + "," + scores[key];// 이 return 값을 client에게 보냄
+    }).join("|"));// 한 key(nickname)에 대한 정보를 보내고 "|"를 입력해줌
+}
+
+wss.on('listening', () => {//서버가 시작됬을때
+    console.log("서버가 시작되었습니다!");
+});
+
+wss.on('connection', socket => {//서버에 클라이언트가 접속했을때
+    console.log('유저가 접속!');
+    sendScores(socket);
+    socket.on('message', message => {
+        const type = message.toString().split(':')[0];//split(':') // :을기준으로 나누는거
+        //message변수에서 ":"를 중심으로 잘라 [0] 자리의 값을 type변수에 저장
+
+        switch (type)
+        {
+            case "score":
+                const data = message.toString().split(':')[1];//message변수에서 :을 기준으로 자른후 data에 [1]값 저장
+                const nickname = data.split(",")[0];//data변수를 ","을 기준으로 자른후 [0]값을 nickname에 저장
+                const score = data.split(",")[1];//data변수를 ","을 기준으로 자른후 [1]자리값을 score변수에 저장 
+
+                scores[nickname] = score;
+                
+                wss.clients.forEach(client => {// forEach문으로 클라이언트한테 점수를 각각 보내주는 코드
+                    sendScores(client);
+                });
+
+                fs.writeFileSync(file, JSON.stringify(scores));//JSON.stringify :JSON문자열로 변환
+                break;
+            
+            case "get":  //get을 입력받은 경우
+                sendScores(socket);
+                break;
+        }
+    });
+});

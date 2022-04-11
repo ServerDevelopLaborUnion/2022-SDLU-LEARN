@@ -43,4 +43,11 @@ Quaternion을 사용하면 회전을계산할수있다.
         split(':') // :을기준으로 나누는거
         wss.clients.forEach(client => {sendScores(client);});// forEach문으로 클라이언트한테 점수를 각각 보내주는 코드
         JSON.stringify// JSON문자열로 변환
-Unity :  (내일 적을것)
+        case "get": // type이 get인 경우(get을 입력받은 경우)
+                socket.send(Object.keys(scores).map((key) => {
+                    return key + "," + scores[key]; // 이 return 값을 client에게 보냄
+                    //return `${key},${scores[key]}`; 위와 같은 코드
+                }).join("|")); // 한 key(nick)에 대한 정보를 보내고 "|"를 입력해줌
+                // 클라이언트에게 "key(nick1),scores[key(nick1)]|key(nick2),scores[key(nick2)]" 형식으로 보내기
+                break; // "get" case 나가기
+
