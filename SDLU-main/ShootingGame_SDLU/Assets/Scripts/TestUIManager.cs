@@ -20,17 +20,19 @@ public class TestUIManager : MonoBehaviour
 
     private int a = 0;
 
-    public int _score => 4; //getter
+    public int _score; //getter
     private TestUIManager testUIManager;
 
     [SerializeField]
     private string _scorekey = "SCORE";
+
     public int Score = 0;
     public void PlusScore(){
-        PlayerPrefs.SetInt("SCORE", _score);
+        PlayerPrefs.SetInt(_scorekey, _score);
         PlayerPrefs.SetInt("THREE", 3);
         PlayerPrefs.SetInt("FOUR", 4);
-        int score = PlayerPrefs.GetInt(_scorekey,0);
+
+        int score = PlayerPrefs.GetInt(_scorekey, 0);
         Score++;
     }
 }

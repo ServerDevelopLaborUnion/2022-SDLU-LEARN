@@ -9,10 +9,15 @@ public class EnemyMove : MonoBehaviour
     public UIManager _UIManager;
     private ScoreCount ScoreManager;
 
+    private TestUIManager t;
+
+
     void Start()
     {
+
         Destroy(gameObject, 2f);
         _UIManager = FindObjectOfType<UIManager>();
+        _UIManager.enabled = false;
         ScoreManager = FindObjectOfType<ScoreCount>();
     }
 

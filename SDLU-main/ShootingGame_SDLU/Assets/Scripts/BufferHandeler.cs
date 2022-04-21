@@ -1,24 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BufferHandeler : MonoBehaviour
 {
     public BufferHandeler Instance;
 
-    private static BufferHandeler Instance
-    {
-        get
-        {
-            if( _instance == null)
-            {
-                _instance = FindObjectOfType<BufferHandeler>();
-            }
-            return _instance;
-        }
-    }
-
-    private static BufferHandeler _instance = null;
+    
 
     public Queue<string> _textQueue = new Queue<string>();
 
