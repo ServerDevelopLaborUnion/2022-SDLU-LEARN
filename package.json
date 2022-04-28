@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "ws": "^8.5.0"
+  },
+  "name": "2022-sdlu-learn",
+  "description": "Yeeeeeeaa",
+  "version": "1.0.0",
+  "main": "서버구현.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ServerDevelopLaborUnion/2022-SDLU-LEARN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ServerDevelopLaborUnion/2022-SDLU-LEARN/issues"
+  },
+  "homepage": "https://github.com/ServerDevelopLaborUnion/2022-SDLU-LEARN#readme"
+}
