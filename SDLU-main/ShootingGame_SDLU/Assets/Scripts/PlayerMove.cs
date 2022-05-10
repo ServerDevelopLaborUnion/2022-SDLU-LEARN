@@ -37,8 +37,19 @@ public class PlayerMove : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(Bullet, transform.position, Quaternion.identity);
+            SpawnOrInstantiate();
             yield return new WaitForSeconds(FireDelay);
+        }
+    }
+    private void SpawnOrInstantiate(){
+        if(GameManager.Instance.Pooling.childCount>0){
+            Transform bullet = GameManager.Instance.Pooling.GetChild(0);
+            bullet.gameObject.SetActive(true);
+            bullet.SetParent(null);
+            bullet.position = transform.position;
+        }
+        else{
+            Instantiate(Bullet, transform.position, Quaternion.identity);
         }
     }
 

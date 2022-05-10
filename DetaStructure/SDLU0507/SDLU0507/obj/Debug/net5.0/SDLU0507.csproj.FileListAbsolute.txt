@@ -1,0 +1,16 @@
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.exe
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.deps.json
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.runtimeconfig.json
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.runtimeconfig.dev.json
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.dll
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\bin\Debug\net5.0\SDLU0507.pdb
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.csproj.AssemblyReference.cache
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.AssemblyInfoInputs.cache
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.AssemblyInfo.cs
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.csproj.CoreCompileInputs.cache
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.dll
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\refint\SDLU0507.dll
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.pdb
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\SDLU0507.genruntimeconfig.cache
+C:\Users\user\Code\2022-SDLU-LEARN\DetaStructure\SDLU0507\SDLU0507\obj\Debug\net5.0\ref\SDLU0507.dll
