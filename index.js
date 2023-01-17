@@ -13,6 +13,7 @@ if(fs.existsSync(file))  //Directory 존재 여부 체크
     scores = JSON.parse(fs.readFileSync(file)) //파일 정보 읽기
 }
 
+
 function sendScores(socket){
     socket.send(Object.keys(scores).map((key) => {
         return key + "," + scores[key];
@@ -25,6 +26,7 @@ wss.on('listening', () => { //서버가 켜졌을 때
 
 wss.on('connection', socket => { //클라가 연결했을 때
     console.log('유저가 접속!');
+    sendScores(socket);
     socket.on('message', message => {
         const type = message.toString().split(':')[0]; // 소켓이 보낸 메시지를 ':' 을 기준으로 나눔
 
